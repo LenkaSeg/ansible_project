@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/lenka/Documents/code/ansible/multivm","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
