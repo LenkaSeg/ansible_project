@@ -15,9 +15,9 @@ Bonus points if you make a bash script that does it for each machine and prints 
 - by default Vagrant creates interface which is shared. This was the reason all VMs had the same 
 IP address. If I want to have each VM with specific address, I have to use PRIVATE_NETWORK. 
 - now the device is not eth0, but eth1
-- I run ```ip -4 a show dev eth1``` to retrieve the IP from each VM, but the output is a little 
-longer than just IP. 
-To get just the IP I ran:
+- I ssh-ed to each VM and ran ```ip -4 a show dev eth1``` to see the IP from each VM, but 
+the output is a little longer than just IP. 
+To collect all IPs at once without manually entering each VM and to get just the IP I ran:
 
 ```vagrant status | awk '$2 == "running" {print $1}'|```
  ```xargs -n1 -I{} sh -c "vagrant ssh {} -c 'ip -4 a show dev eth0' |```
