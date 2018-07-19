@@ -19,8 +19,9 @@ IP address. If I want to have each VM with specific address, I have to use PRIVA
 longer than just IP. 
 To get just the IP I ran:
 
-```vagrant status | awk '$2 == "running" {print $1}'| xargs -n1 -I{} sh -c "vagrant ssh {} -c 'ip 
--4 a show dev eth0' | cut -c10-21 | sed -n '2p'" > ips```
+```vagrant status | awk '$2 == "running" {print $1}'| \
+ xargs -n1 -I{} sh -c "vagrant ssh {} -c 'ip -4 a show dev eth0' | \
+ cut -c10-21 | sed -n '2p'" > ips```
 
 * vagrant status shows all the VMs
 * awk runs whichever command on each line, $1 are positions
