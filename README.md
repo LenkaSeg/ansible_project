@@ -18,23 +18,25 @@ IP address. If I want to have each VM with specific address, I have to use PRIVA
 - I run ```ip -4 a show dev eth1``` to retrieve the IP from each VM, but the output is a little 
 longer than just IP. 
 To get just the IP I ran:
+
 ```vagrant status | awk '$2 == "running" {print $1}'| xargs -n1 -I{} sh -c "vagrant ssh {} -c 'ip 
 -4 a show dev eth0' | cut -c10-21 | sed -n '2p'" > ips```
 
-..* vagrant status shows all the VMs
-..* awk runs whichever command on each line, $1 are positions
-..* that thing after xargs I found on stackoverflow without any further explanation, so I don't 
+* vagrant status shows all the VMs
+* awk runs whichever command on each line, $1 are positions
+* that thing after xargs I found on stackoverflow without any further explanation, so I don't 
 know exactly what it does, but it works for me
-..* -c "" is the command a want to be ran - to ssh to vagrant, grab the IP message, cut it into 
+* -c "" is the command a want to be ran - to ssh to vagrant, grab the IP message, cut it into 
 columns and cut out extra characters, pick the middle column with sed and write it down into a 
 file called ips
-..* the result is a file called ips with 4 IP addresses
+* the result is a file called ips with 4 IP addresses
 
 - Now when I tested that this megacommand works, I wanted to create a bash script from it. I 
 named it retrieve_IP.sh.
 - Permissions: to make it runable, it's necessary to change permissions like this:
 
-```ls -l```
+```ls -l``` 
+
 ```chmod u+x retrieve_IP.sh```
 
 - I ran it:
