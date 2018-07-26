@@ -58,12 +58,16 @@ targets the aforecreated VMs
 extension
 ```sudo nano /etc/ansible/hosts```
 
-## Make sure you have [ansible 
-config](https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html 
+## Make sure you have [ansible config](https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html 
 "ansible config")
+- ```ansible.cfg``` is in ```/etc/ansible```
+
 
 ## Place 3 VMs on the webserver group and 1 VM on the loadbalancer group
 - in a way so that the ansible playbook targets the VMs - using their IPs
+- NOTE - I should add it to the shell script, so I don't have to copy it manually
+
+
 
  
 
