@@ -49,3 +49,21 @@ addresses.
 It works! 
 
 
+## Install ansible and create an ansible static inventory file so that the ansible playbook 
+targets the aforecreated VMs
+
+```sudo pacman -S ansible```
+
+- inventory file can be Ini-like or Yaml-like. I used Ini version, named it hosts, without file 
+extension
+```sudo nano /etc/ansible/hosts```
+
+## Make sure you have [ansible 
+config](https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html 
+"ansible config")
+
+## Place 3 VMs on the webserver group and 1 VM on the loadbalancer group
+- in a way so that the ansible playbook targets the VMs - using their IPs
+
+ 
+
