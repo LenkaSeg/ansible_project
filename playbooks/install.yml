@@ -1,0 +1,12 @@
+---
+- hosts: all
+    roles:
+    - ntp
+
+- hosts: webservers
+    roles:
+    - web
+
+- hosts: loadbalancers
+    roles:
+    - haproxy

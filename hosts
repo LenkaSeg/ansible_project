@@ -1,7 +1,6 @@
-[webserver]
+[webservers]
 172.28.128.3
 172.28.128.4
 172.28.128.5
-
-[loadbalancer]
+[loadbalancers]
 172.28.128.6
