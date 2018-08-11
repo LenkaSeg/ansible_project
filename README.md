@@ -73,5 +73,18 @@ extension
 - roles, npk for all servers, web for webservers, haproxy for loadbalancers
 - roles directory and inside directories ntp, haproxy and web
 
- 
+## NTP role
+- NTP stands for Network Time Protocol. It is of the utmost importance that your servers run with 
+the same time. In case there are issues, you'll be able to read the logs of your different 
+servers and the time of the events will match. Otherwise it would be very hard to establish a 
+timeline.
 
+This role will set NTP up and make sure that its service is running 
+
+- I followed this [guide](https://www.hugeserver.com/kb/config-time-date-centos-7-ntp/)
+- and it is necessary to put the commands into main.yml file, readable by ansible
+- apparently there are modules for this, which can be found in ansible documentation
+- I used modules: package (for ntp install), timezone (for setting timezone) and systemd (for 
+enabling and starting ntpd service)
+- ntpd stands for network time protocol daemon
+ 

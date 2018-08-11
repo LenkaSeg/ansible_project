@@ -1,0 +1,17 @@
+- name: install ntp (network time protocol)
+  package:
+    name: ntp
+    state: present
+
+
+- name: set timezone to UTC
+  timezone: UTC
+
+
+- name: make sure that main.yml starts the server so the time starts syncing
+  systemd:
+    name: ntpd
+    enable: yes
+    masked: no
+    state: started
+
