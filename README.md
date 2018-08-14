@@ -88,3 +88,12 @@ This role will set NTP up and make sure that its service is running
 enabling and starting ntpd service)
 - ntpd stands for network time protocol daemon
  
+## Code a flask app that replies with its hostname
+
+- created directory echoflask with app.py file
+- using the os module checked of there is an environment variable called REPLY_HOSTNAME - using 
+os.environ.get('REPLY_HOSTNAME')
+- if there is, return it, if not, return hostname using socket module: socket.gethostname()
+- installed package python-flask
+- run python app.py
+- It works 
