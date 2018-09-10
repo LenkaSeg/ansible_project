@@ -96,4 +96,42 @@ os.environ.get('REPLY_HOSTNAME')
 - if there is, return it, if not, return hostname using socket module: socket.gethostname()
 - installed package python-flask
 - run python app.py
-- It works 
+- It works
+
+## Containerize the 'echoflask' app
+
+- Dockerfile created in echoflask
+- creating user Lenka and switching to it
+
+```
+RUN useradd -ms /bin/bash lenka
+
+USER lenka
+```
+
+- label added
+- ENV [REPLY_HOSTNAME] set to unset (but I'm not sure if I understand what it's supposed to do)
+- ENTRYPOINT set to run 'echoflask':
+
+```
+ENTRYPOINT ["python","app.py"]
+```
+
+- image built
+
+```
+docker build -t lenkaseg/echoflask .
+```
+
+- run
+
+```
+docker run -p 11000:11000 --name echoflask lenkaseg/echoflask
+```
+
+- dockerhub
+
+``` 
+docker login --username=lenkaseg
+docker push lenkaseg/echoflask
+``` 
