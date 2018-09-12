@@ -97,6 +97,8 @@ os.environ.get('REPLY_HOSTNAME')
 - installed package python-flask
 - run python app.py
 - It works
+> Note: Added rule in app.py => in case the var_check is unset, then get the hostname: 
+> ``` socket.gethostname() ```
 
 ## Containerize the 'echoflask' app
 

@@ -8,6 +8,8 @@ def hostname():
     var_check = os.environ.get('REPLY_HOSTNAME')
     if var_check:
         return var_check
+    if var_check == 'unset':
+        return socket.gethostname()
     else:
         return socket.gethostname()
 
